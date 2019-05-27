@@ -32,5 +32,5 @@ EXPOSE 8091
 ADD conf/registry.conf /opt/seata/distribution/conf
 ADD conf/file.conf /opt/seata/distribution/conf
 
-ENTRYPOINT ["sh","/opt/seata/distribution/bin/seata-server.sh"]
+ENTRYPOINT ["sh","/opt/seata/distribution/bin/seata-server.sh","10031","db","106.52.253.17"]
 

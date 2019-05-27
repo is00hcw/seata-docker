@@ -29,8 +29,8 @@ ENV EXTRA_JVM_ARGUMENTS="-XX:MaxDirectMemorySize=1024M"
 
 EXPOSE 8091
 
-ADD conf/registry.conf /opt/seata/conf
-ADD conf/file.conf /opt/seata/conf
+ADD conf/registry.conf /opt/seata/distribution/conf
+ADD conf/file.conf /opt/seata/distribution/conf
 
-ENTRYPOINT ["sh","/opt/seata/bin/seata-server.sh"]
+ENTRYPOINT ["sh","/opt/seata/distribution/bin/seata-server.sh"]
 

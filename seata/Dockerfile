@@ -10,7 +10,7 @@ ENV SEATA_USER="seata" \
     JAVA="/usr/lib/jvm/java-1.8.0-openjdk/bin/java" \
     TIME_ZONE="Asia/Shanghai" 
 
-ARG SEATA_VERSION=0.5.2
+ARG SEATA_VERSION=0.6.0
 
 WORKDIR /$BASE_DIR
 
@@ -27,5 +27,7 @@ RUN set -x \
 # 设置额外参数
 ENV EXTRA_JVM_ARGUMENTS="-XX:MaxDirectMemorySize=1024M"
 
-ENTRYPOINT ["sh","/opt/seata/bin/seata-server.sh"]
 EXPOSE 8091
+
+ENTRYPOINT ["sh","/opt/seata/bin/seata-server.sh"]
+

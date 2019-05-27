@@ -17,7 +17,7 @@ WORKDIR /$BASE_DIR
 RUN set -x \
     && yum update -y \
     && yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel wget iputils nc vim libcurl \
-    && wget  https://github.com/seata/seata/releases/download/${SEATA_VERSION}/seata-server-${SEATA_VERSION}.tar.gz -P /home \
+    && wget  https://github.com/seata/seata/releases/download/v${SEATA_VERSION}/seata-server-${SEATA_VERSION}.tar.gz -P /home \
     && mkdir /opt/seata \
     && tar -xzvf /home/seata-server-${SEATA_VERSION}.tar.gz -C /opt/seata \
     && rm -rf /home/seata-server-${SEATA_VERSION}.tar.gz \
@@ -28,6 +28,9 @@ RUN set -x \
 ENV EXTRA_JVM_ARGUMENTS="-XX:MaxDirectMemorySize=1024M"
 
 EXPOSE 8091
+
+ADD conf/registry.conf /opt/seata/conf
+ADD conf/file.conf /opt/seata/conf
 
 ENTRYPOINT ["sh","/opt/seata/bin/seata-server.sh"]
 
